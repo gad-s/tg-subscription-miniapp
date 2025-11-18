@@ -1,0 +1,64 @@
+// Инициализация Telegram Web App
+if (typeof Telegram !== 'undefined') {
+    Telegram.WebApp.ready();
+    Telegram.WebApp.expand();
+
+    // Адаптация под тему Telegram
+    const theme = Telegram.WebApp.themeParams;
+    if (theme.bg_color_key === 'light') {
+        document.body.setAttribute('data-theme', 'light');
+    }
+
+    // Главная кнопка снизу (синяя, как на скриншоте)
+    const mainButton = Telegram.WebApp.MainButton;
+    mainButton.text = 'Продлить подписку';
+    mainButton.color = '#0088cc';
+    mainButton.textColor = '#ffffff';
+    mainButton.show();
+    mainButton.onClick(() => {
+        // Здесь логика оплаты — замени на свою ссылку
+        Telegram.WebApp.showAlert('Переход на оплату...');
+        // Или: Telegram.WebApp.openLink('https://твоя-ссылка-на-оплату.com');
+    });
+
+    // Получение данных пользователя (для бэкенда)
+    const user = Telegram.WebApp.initDataUnsafe.user;
+    console.log('User ID:', user?.id);
+}
+
+// Обработка кликов по меню (тестовые действия)
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            const text = item.querySelector('span:nth-child(2)').textContent;
+            if (text === 'Пригласи друга') {
+                if (typeof Telegram !== 'undefined') {
+                    Telegram.WebApp.showAlert('Бонус: 0 ? за приглашённого друга!');
+                } else {
+                    alert('Бонус: 0 ?!');
+                }
+            } else if (text === 'Telegram канал') {
+                if (typeof Telegram !== 'undefined') {
+                    Telegram.WebApp.openTelegramLink('https://t.me/твойканал'); // Замени
+                } else {
+                    window.open('https://t.me/твойканал');
+                }
+            } else if (text === 'Instagram канал') {
+                window.open('https://instagram.com/твойаккаунт'); // Замени
+            } else if (text === 'Тарифы (оплата)') {
+                if (typeof Telegram !== 'undefined') {
+                    Telegram.WebApp.showAlert('Открытие тарифов...');
+                } else {
+                    alert('Тарифы открыты!');
+                }
+            } else {
+                if (typeof Telegram !== 'undefined') {
+                    Telegram.WebApp.showAlert(`Открыть: ${text}`);
+                } else {
+                    alert(text);
+                }
+            }
+        });
+    });
+});

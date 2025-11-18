@@ -1,0 +1,67 @@
+!DOCTYPE html
+html lang=ru
+head
+    meta charset=UTF-8
+    meta name=viewport content=width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no
+    titleVPN Подпискаtitle
+    script src=httpstelegram.orgjstelegram-web-app.jsscript
+    link rel=stylesheet href=style.css
+head
+body
+    div class=container
+        !-- Иконка выключателя (синяя, как на скриншоте) --
+        div class=power-icon
+            svg width=80 height=80 viewBox=0 0 24 24 fill=none xmlns=httpwww.w3.org2000svg
+                circle cx=12 cy=12 r=10 stroke=#0088cc stroke-width=2 fill=none
+                path d=M12 2V8 stroke=#0088cc stroke-width=2 stroke-linecap=round
+                path d=M12 16V22 stroke=#0088cc stroke-width=2 stroke-linecap=round
+                path d=M4.93 4.93L8.34 8.34 stroke=#0088cc stroke-width=2 stroke-linecap=round
+                path d=M15.66 15.66L19.07 19.07 stroke=#0088cc stroke-width=2 stroke-linecap=round
+                path d=M19.07 4.93L15.66 8.34 stroke=#0088cc stroke-width=2 stroke-linecap=round
+                path d=M8.34 15.66L4.93 19.07 stroke=#0088cc stroke-width=2 stroke-linecap=round
+            svg
+        div
+
+        !-- Заголовок --
+        h1Подписка истеклаh1
+        p class=subtitleНеобходимо продлить подпискуp
+
+        !-- Меню опций (как на скриншоте) --
+        div class=menu
+            a href=# class=menu-item
+                span class=icon??span
+                spanВидеоинструкция по установкеspan
+                span class=chevronspan
+            a
+            a href=# class=menu-item
+                span class=icon??span
+                spanПригласи другаspan
+                span class=bonus0 ?span
+                span class=chevronspan
+            a
+            a href=# class=menu-item
+                span class=icon??span
+                spanТарифы (оплата)span
+                span class=chevronspan
+            a
+            a href=# class=menu-item
+                span class=icon??span
+                spanTelegram каналspan
+                span class=chevronspan
+            a
+            a href=# class=menu-item
+                span class=icon??span
+                spanInstagram каналspan
+                span class=chevronspan
+            a
+            a href=# class=menu-item
+                span class=icon??span
+                spanОбратная связьspan
+                span class=chevronspan
+            a
+        div
+    div
+
+    script src=script.jsscript
+body
+html
